@@ -1,0 +1,11 @@
+reversi is the game that player_1 and player_2 can play together on the 8*8 board, to import this board game in to program,
+I should divide this game's procedure into small pieces. this game should print the initial value on the board first. and 
+check whether the stone can be put down on the board or board is full if board is full, calculate p1's stone and p2's stone 
+to determine who is winner of the game. and also unless stone can pe put down, other player's turn be called.
+in each player's turn, program should check if stone can be put down on that coordinate. if it can, change the other's 
+stone by the rule. print the changed board again. p1's turn and p2's turn will be reapeted untill game finished.
+to be more exactly, each player's turn includes check the board, check the coordinate from player, check coordinate is good or
+not, check the area surrounding player's coordinate, and change stone by the rule , print the changed board. board will be 8*8 
+int array and p1's stone is 1 p2's stone is 2. in checking the surrounding area, program will move the same direction if other stone 
+is detected. if his stone is detected or there is no stone program will stop recursion. and also change the other stone if only his stone is
+detected during the journey.

@@ -1,0 +1,156 @@
+
+ line       object           ucode  source program
+
+   1    (35  105    2)     main       proc    105     2       2
+   2    (38    2    1)                sym     2       1       100
+   3    (38    2  101)                sym     2       101     1
+   4    (38    2  102)                sym     2       102     1
+   5    (38    2  103)                sym     2       103     1
+   6    (38    2  104)                sym     2       104     1
+   7    (38    2  105)                sym     2       105     1
+   8    (20    1     )                ldc     1
+   9    (24    2  103)                str     2       103
+  10    (23          )                ldp
+  11    (21    2  101)                lda     2       101
+  12    (29   -1     )                call    read
+  13    (34          )     $$1        nop
+  14    (19    2  101)                lod     2       101
+  15    (20    0     )                ldc     0
+  16    (18          )                ne
+  17    (28   30     )                fjp     $$2
+  18    (19    2  103)                lod     2       103
+  19    (21    2    1)                lda     2       1
+  20    ( 6          )                add
+  21    (19    2  101)                lod     2       101
+  22    (25          )                sti
+  23    (19    2  103)                lod     2       103
+  24    ( 2          )                inc
+  25    (24    2  103)                str     2       103
+  26    (23          )                ldp
+  27    (21    2  101)                lda     2       101
+  28    (29   -1     )                call    read
+  29    (26   13     )                ujp     $$1
+  30    (34          )     $$2        nop
+  31    (19    2  103)                lod     2       103
+  32    (20    1     )                ldc     1
+  33    ( 7          )                sub
+  34    (24    2  102)                str     2       102
+  35    (19    2  102)                lod     2       102
+  36    (24    2  104)                str     2       104
+  37    (34          )     $$3        nop
+  38    (19    2  104)                lod     2       104
+  39    (20    1     )                ldc     1
+  40    (13          )                gt
+  41    (28   89     )                fjp     $$4
+  42    (20    1     )                ldc     1
+  43    (24    2  103)                str     2       103
+  44    (34          )     $$5        nop
+  45    (19    2  103)                lod     2       103
+  46    (19    2  104)                lod     2       104
+  47    (14          )                lt
+  48    (28   84     )                fjp     $$6
+  49    (19    2  103)                lod     2       103
+  50    (21    2    1)                lda     2       1
+  51    ( 6          )                add
+  52    (19    2  103)                lod     2       103
+  53    (20    1     )                ldc     1
+  54    ( 6          )                add
+  55    (21    2    1)                lda     2       1
+  56    ( 6          )                add
+  57    (13          )                gt
+  58    (28   79     )                fjp     $$7
+  59    (19    2  103)                lod     2       103
+  60    (21    2    1)                lda     2       1
+  61    ( 6          )                add
+  62    (22          )                ldi
+  63    (24    2  105)                str     2       105
+  64    (19    2  103)                lod     2       103
+  65    (20    1     )                ldc     1
+  66    ( 6          )                add
+  67    (21    2    1)                lda     2       1
+  68    ( 6          )                add
+  69    (22          )                ldi
+  70    (24    2    1)                str     2       1
+  71    (19    2  103)                lod     2       103
+  72    (20    1     )                ldc     1
+  73    ( 6          )                add
+  74    (21    2    1)                lda     2       1
+  75    ( 6          )                add
+  76    (22          )                ldi
+  77    (19    2  105)                lod     2       105
+  78    (25          )                sti
+  79    (34          )     $$7        nop
+  80    (19    2  103)                lod     2       103
+  81    ( 2          )                inc
+  82    (24    2  103)                str     2       103
+  83    (26   44     )                ujp     $$5
+  84    (34          )     $$6        nop
+  85    (19    2  104)                lod     2       104
+  86    ( 3          )                dec
+  87    (24    2  104)                str     2       104
+  88    (26   37     )                ujp     $$3
+  89    (34          )     $$4        nop
+  90    (20    1     )                ldc     1
+  91    (24    2  103)                str     2       103
+  92    (34          )     $$8        nop
+  93    (19    2  103)                lod     2       103
+  94    (19    2  102)                lod     2       102
+  95    (16          )                le
+  96    (28  106     )                fjp     $$9
+  97    (23          )                ldp
+  98    (19    2  103)                lod     2       103
+  99    (21    2    1)                lda     2       1
+ 100    ( 6          )                add
+ 101    (29   -2     )                call    write
+ 102    (19    2  103)                lod     2       103
+ 103    ( 2          )                inc
+ 104    (24    2  103)                str     2       103
+ 105    (26   92     )                ujp     $$8
+ 106    (34          )     $$9        nop
+ 107    (30          )                ret
+ 108    (36          )                end
+ 109    (37    0     )                bgn     0
+ 110    (23          )                ldp
+ 111    (29    1     )                call    main
+ 112    (36          )                end
+
+
+
+   ****    Result    ****
+
+
+ 13 14 15
+
+   **********************
+
+
+
+
+                 #### Statistics ####
+
+
+    ****  Static Instruction Counts  ****
+
+
+inc    =  3       dec    =  1       add    =  10      sub    =  1       
+gt     =  2       lt     =  1       le     =  1       ne     =  1       
+lod    =  21      ldc    =  9       lda    =  9       ldi    =  3       
+ldp    =  4       str    =  11      sti    =  2       ujp    =  4       
+fjp    =  5       call   =  4       ret    =  1       nop    =  9       
+proc   =  1       end    =  2       bgn    =  1       sym    =  6       
+
+
+
+  ****  Dynamic instruction counts  ****
+
+
+inc    =  9         dec    =  2         add    =  15        sub    =  1         
+gt     =  6         lt     =  5         le     =  4         ne     =  4         
+lod    =  53        ldc    =  15        lda    =  16        ldp    =  8         
+str    =  17        sti    =  3         ujp    =  11        fjp    =  19        
+call   =  8         ret    =  1         nop    =  24        proc   =  1         
+end    =  1         bgn    =  1         sym    =  6         
+
+ Executable instruction count  =   198
+
+ Total execution cycle         =   1766
