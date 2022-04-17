@@ -1,0 +1,54 @@
+pragma solidity ^0.5.11;
+
+
+contract mine {
+//contract is kind of class
+    
+    /*
+    1. fixed size types
+    2. variable size types
+    3. user defined types
+    */
+    //4. Define a function and execute
+    //1 fixed
+    bool isReady;
+    uint a; // 256 same
+    uint256 b; //bit number
+    uint160 c; // hash length
+    address recipient;
+    bytes32 d; //32bytes data
+    
+    
+    //2 variable
+    string name;
+    bytes school;
+    uint[] automata;
+    mapping(uint => string)users; //dict
+    //3 user-defined
+    struct Sumins
+    {
+        uint nice;
+        bool good;
+        string[]games;
+    }
+    enum Planet{
+        MOON,
+        PLUTO,
+        EARTH
+    }
+    //Planet.EARTH
+    uint value = 1;
+    
+    function getValue() external view returns(uint){
+        return(value);
+        
+    }
+    function setValue(uint _value) external {
+        value  = _value;
+        //name distinction
+    }
+    function hello ()external pure returns(string memory){
+        return("Hello World");
+        
+    }
+}

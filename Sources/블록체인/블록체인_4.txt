@@ -1,0 +1,253 @@
+pragma solidity ^0.5.11;
+//err handling
+
+/*
+    1. what happen err?
+    2. throw deprecated
+    3. revert
+    4. require
+    5. assert
+    6. err in other contracts
+
+*/
+
+contract A{
+    uint a ; // storage var
+    
+    function foo() external
+    {
+        a = 10;
+        
+        //err
+        //roll back
+        
+        //gas is consumed
+    }
+    function bar() external
+    {
+        a = 0;
+        //if (a==0) revert("revert");
+        //rolback
+        
+        //require(a!= 0 ,"required a should be 0");
+        //conditioned revert
+        
+        assert(a!=0);
+        
+        //test
+        //assert a should not be zero
+    }
+    function willThrowAnother() external
+    {
+        B b = new B();
+        bool result;
+        bytes memory mybytes;
+        //b.bar(); all rollback
+        (result,mybytes) = address(b).call(abi.encodePacked("b.bar()"));
+        // just b roll back
+        
+    }
+
+}
+
+
+contract B{
+    uint b;
+    function bar() external pure
+    {
+        //b= 100;
+        revert("revert B");
+    }
+}
+
+//function modifier
+
+/*
+    1. modifier syntax
+    2. passing arg
+    3. cleaning modifier
+    4. example for access control
+*/
+
+//decorator in python
+
+
+/*
+
+a=1+1
+fg = f+g // function
+arg is func
+
+def deco (func):
+    def wrapper():
+        func():
+    return wrapper
+handle function like data 
+*/
+
+contract C{
+    address admin;
+    
+    function foo(uint a) external  mymod1(a) onlyadmin()
+    {
+        
+    }
+    modifier mymod1(uint a)
+    {
+        require(a==0 , "a shoulde be 0");
+        //before calling foo call mymod1
+        _;//foo()
+    }
+    modifier onlyadmin()
+    {
+        require(admin==msg.sender , "only admin should call foo!");
+        //access control
+        _;//foo()
+    }
+}
+
+
+
+
+/*
+    fallback function
+        no name not duplicatend no arg external
+    1. to recieve ether
+    2. fall back
+        if called function is not defined
+    reject incoming call
+
+*/
+
+contract D{
+    string data;
+    function () payable external {
+        if(msg.data.length >0 )
+            revert();
+    }
+    function getdata() external view returns (string memory)
+    {
+        return data;
+    }
+}
+contract E{
+    function foo() external 
+    {
+        D d = new D();
+        interfac(address(d)).doesNotExist();
+        //fall back function called
+    }
+    
+}
+contract interfac{
+    function doesNotExist() external;
+}
+
+/*
+    Assembly
+    EVM
+    syntax
+    read and storage
+    detect if smart contract
+    cast bytes to bytes32
+*/
+
+contract F{
+    function boo() external 
+    {
+        uint a;
+        uint b;
+        uint c;
+        c = a+b;
+        //slot
+        
+        assembly{
+            c:= add(1,2)
+            //SLOT=32bytes * 8 = 256 bits
+            //can be compact tuning
+            let a:= mload(0x40)
+            //load from memory
+            mstore(a,2)
+            //memory store
+            sstore(a,20)
+            //store on the block chain
+            
+        }
+    }
+}
+contract G{
+    function boo() external view returns (bool)
+    {
+        address addr = msg.sender;
+        uint size;     
+        assembly{
+            size:= extcodesize(addr)
+        }
+        
+        if (size>0)
+            return true;
+        else
+            return false;
+    }
+    
+    //size = code size
+}
+
+contract H
+{
+    function boo () external pure {
+        bytes memory data = new bytes(10);
+        //data is pointing at bytes 10 array
+        bytes32 dataB32;
+        
+        //dataB32 = data;
+        //assembly
+        assembly{
+            dataB32 := mload(add(data,32))
+        }
+        
+    }
+    
+    
+}
+/*
+
+    1. pure func
+    2. with a struct
+    3. using ...for
+    4. Deployed vs Embeded library -> public vs internal
+    
+*/
+library I{
+    struct Jungdam {
+        uint age;
+    }
+    function BirthDay(Jungdam storage _jumm,uint ages) public
+    {
+        _jumm.age += ages;        
+    }
+    function add10(uint _a) pure public returns (uint)
+    {
+        return _a+10;
+    }
+    
+}
+
+contract K{
+    
+    using I for I.Jungdam;
+    
+    mapping(uint => I.Jungdam) jungdams;
+    
+    function boo() external {
+        I.BirthDay(jungdams[0],1);
+        uint result = I.add10(30);
+        jungdams[0].BirthDay(10);
+        //use struct as library
+    }
+    
+}
+
+
+
+

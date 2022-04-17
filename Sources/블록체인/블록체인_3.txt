@@ -1,0 +1,225 @@
+pragma solidity ^0.5.11;
+import "./SohnB.sol";
+contract Mycontract
+{
+    //contract is one of accounts
+    //external var
+    mapping(address=>uint) balances;
+    function invest() external payable
+    //contract can get wei
+    {
+        //no code but it can get a gas
+        //from outside
+        if(msg.value < 1000)
+        {
+            revert();
+            //transaction cancel
+        }
+        balances[msg.sender] += msg.value;
+        
+    }
+    function balanceof() external view
+    returns (uint)
+    {
+        return(address(this).balance);
+        //return the balance of this contract
+        //type casting needed
+        
+    }
+    //it can be invested
+    
+    
+    //to other contract / address
+    //1 transfer
+    function sendEther(address payable/*recipient can get wei*/ recipient) external
+    {
+        recipient.transfer(1 ether);
+        //recipient needs to be payable
+        //2 address .vs address payable
+        //3 address payable casting
+        address payable a;
+        a = recipient;
+        //address != address payable
+        a.transfer(100);
+        //4 msg sender
+        msg.sender.transfer(100);
+        
+        //5 send vs transfer
+        
+        a.transfer(100); // 100 to recipient whole transaction can be canceled if fail
+        a.send(100);  // just this msg is canceld if fail
+    }
+
+   
+
+    
+}
+// call function of other contract
+// 1. call function of other contract
+// 2. import keyword
+// 3. contract interface
+// 4. error propagation
+
+
+contract A{
+    address addressB;
+    
+    
+    function setAddressB(address _addressB) external 
+    {
+        addressB = _addressB;
+        //addr setting
+    }
+    function callB() external view 
+    returns (string memory)
+    {
+        Binterface b=Binterface(addressB);
+        b.poop();
+        // all transaction cancel
+        return (b.Hello());
+    }
+}
+
+
+
+
+pragma solidity ^0.5.11;
+
+interface Binterface{
+    //function declare
+    function Hello() external pure returns (string memory);
+     function poop()external view;
+    
+}
+contract B is Binterface {
+    function Hello() external pure returns (string memory)
+    {
+        return "Hello world";
+    }
+    
+    function poop()external view
+    {
+        revert();
+        // all cancel
+    }
+}
+
+pragma solidity ^0.5.11;
+////contract  Token is ERC20{
+    
+//}
+/*
+contract TransferToken
+{
+    address constant TokenAddress =0x0AFE13DS;
+    function transfer() external
+    {
+        Token token = Token(TokenAddress);
+        token.tansfer(msg.sender , 100);
+        //transfer token of this contrac to msg.sender
+        
+    }
+    function transferFrom(address recipient, uint amount) external
+    {
+        Token token = Token(TokenAddress);
+        token.transferFron(msg.sender , recipient , amount);
+        //transfer token of msg.sender to recipient
+    }
+}
+
+contract Owner
+{
+    address constant TOKEN_ADDR = 0x000;
+    address constant OWNER_ADDR = 0x100;
+    Token token = Token(TOKEN_ADDR);
+    token.approve(OWNER_ADDR);
+    //approve certain amount of value
+    //ex) 50 allow 20 spent can do 30
+}
+*/
+
+//1. create child contracts
+//2. store child contract addresses
+//3. cast contract pointer to address
+//4. call function of child contract
+contract loanFactory
+{
+    mapping(address=>Loan) looo; 
+    Loan[]loans;
+    function creation() external
+    {
+        Loan lo = new Loan(100);
+        address(lo);
+        loans.push(lo);
+    }
+    function withdraw(uint amount) external
+    {
+        looo[msg.sender].withdraw(amount);
+    }
+    function reimburse() external
+    {
+        looo[msg.sender].reimburse();
+    }
+    //made by factory
+}
+contract Loan 
+{
+    uint public amount;
+    constructor (uint _amount) public
+    {
+        amount = _amount;
+    }
+    function withdraw(uint _amount) external
+    {
+        amount += _amount;
+        //use
+    }
+    function reimburse() external
+    {
+        //sanghwan
+    }
+}
+
+//1. declare consturctor
+//2. difference with regular functions
+//3. admin pattern
+//4. calling other functions
+//5. calling parent constructor
+contract Sudo 
+{
+    uint a;
+    uint b;
+    address admin;
+    constructor (uint _a , uint _b) public
+    {
+        //constructor must be public or internal
+        a = _a;
+        admin = msg.sender;
+    }
+}
+contract MyMy is Sudo
+{
+    uint a;
+
+    constructor (uint _a ) Sudo(_a,100) public
+    {
+        //constructor must be public or internal
+        poop();
+    }
+    //only perfomed when deployed
+    function poop() public 
+    {
+    
+    }
+}
+
+
+//creater vs factory
+
+
+
+
+
+
+//1 wei = 10 **(-18) ether
+//transform to wei

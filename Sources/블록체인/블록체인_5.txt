@@ -1,0 +1,63 @@
+dApp 개발사례
+lottery
+목차 - 개요, 세팅, 개발, 연동, 마무리
+개요
+web2.0 -> web3
+dApp - decentralized App/ Block Chain App
+p2p 방식
+web3.js - 라이브러리 존재
+지속적으로 변경되는 기술
+	-> IPFS(Block chained FileSystem) 
+dApp	INFURA
+	-> Ethereum NetWork(money + smart contract)
+
+Web3 
+- javascript library installed with npm (Node.js)
+- JSON-RPC -> REST-full (CRUD)
+- Execution Environment - Test-RPC(Ganache) (하나의 노드가 돌아가는 환경)
+		        - Test-net 
+		        - Main-net
+
+Ganache - 가상의 이더리움 네트워크 생성해서 스마트 컨트랙트 실행
+	- GUI
+
+Truffle Frame - Remix로 대체 가능
+	      - 컴파일, 배포, 테스트(Truffle만 가능)
+
+ganache-cli - 로컬 블록체인 -d (계속 똑같음)
+
+metamask - seed 구문
+
+migration.sol - 개인이 작성한 sol 프로그램 블록체인에 옮기는 코드
+
+컴파일하면 json 파일 생성
+
+js 파일로 sol 파일 업로드
+
+ganache-cli -d(deterministic) -m(mnenoic) tutorial
+노드 하나 블록체인
+
+truffle migrate (이미 deploy)
+truffle migrate --reset (deploy 할때마다 reset)
+
+1. folder
+2. truffle init
+3. sol 파일 생성 deploying js 파일 truffle_config.js 수정
+4. truffle complie
+4.5 ganache-cli 실행
+5. truffle migrate
+
+truffle console
+web3.eth
+eth = web3.eth
+eth.(tab tab)
+
+deploy 한 컨트랙트도 가능
+
+lottery.deployed().then(function(instance){ lt = instance})
+deployed() 다될때까지 대기후(then) instance를 받아서 
+lt로 인스턴스화
+lt.owner() getter 자동적으로 생성
+
+truffle을 활용한 smart계약의 상호작용가능
+truffle console을 활용

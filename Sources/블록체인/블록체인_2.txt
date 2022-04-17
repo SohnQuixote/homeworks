@@ -1,0 +1,260 @@
+
+
+pragma solidity ^0.5.11;
+
+contract Mine{
+    
+    //built -in Variables(msg.sender , msg.value)
+    /*tx.origin
+    msg.value wei = 10 **18 ether
+    function foo() external view
+    {
+        msg.sender // 
+    
+        
+    }
+    if a human Allice call this Contract
+    tx.origin  is equal to Allice
+    msg.sender is Aliice too
+    
+    if Allice -->A --> Mine
+    tx.origin = Allice
+    msg.sender = A*/
+    
+    //control Structures
+    /*bool check = true;
+     
+    function test( ) external view{
+        uint a;
+        if(check)
+        {
+            a = 0;
+        }
+        else
+        {
+            a = 1;
+        }
+        for (uint i=o;i<10;i++)
+        {
+            
+        }
+        while(!check)
+        {
+            if(a == 1)
+            {
+                break;    
+            }
+            else 
+            {
+                continue;
+            }
+        }
+    }*/
+    
+   
+    /*
+    1. Storage Array
+     //Arrays SameType
+     CRUD - Create, Read, Update, delete
+     uint[] myArray; //Dynamic Array
+     uint[3] myArray_2 //Fixed Array
+     function foo() external view
+     {
+         myArray.push(2);
+         myArray.push(3);
+         myArray.push(4);
+         
+         myArray[0] //2
+         myArray[2] //4
+         myArray[30000] <- runtime err
+         
+         delete myArray[1] // the element is just subsituted to default
+         //ex) bool default value is false
+         
+         for(uint i=0;i<myArray.length; i++)
+         {
+             myArray[i];
+             //access to all value
+         }
+         myArray_2[0] = 1;
+         myArray_2.push(100); //push disabled due to fixed size
+         
+     }
+    2. Memory Array
+    
+    function ba() external
+    {
+        uint[] memory newArr = new uint[](10);
+        newArr[0] = 100;
+        delete newArr[2];
+        //set to default value
+    }
+    
+    
+    // if data is in the contract not in the function
+    //it is stored on the storage(block chain)
+    
+    //if data is in the function and defined on the appropriate way
+    //it is stored on the memory 
+    
+    3. Array as an argument and return value
+    
+    function Dread(uint[] calldata arg) external returns(uint[] memory)
+    {
+        //called by external got by pointer - calldata
+        //on external arg must be calldata
+        //on public arg must be memory
+    }
+    
+    */
+    
+    //1. declare mapping == dictionary
+    /*
+    mapping(address => uint) balances;
+    
+    //2. CRUD
+    
+    function foooo(address spender) external
+    {
+        balances[msg.sender] = 100;
+        balances[msg.sender];
+        balances[msg.sender] = 200;
+        delete balances[msg.sender];
+    //3. default value
+        balances[address That does not exist]; //print default value -> 0
+        
+    }
+
+    //4. nested mapping
+    mapping(address => mapping(address => bool)) approved;
+    approved[msg.sender][spender] = true;
+    approved[msg.sender][spender];
+    approved[msg.sender][spender] = false;
+    delete approved[msg.sender][spender];
+    //5. array inside mapping
+    mapping (address=> uint[])scores;
+    scores[msg.sender].push(1); // pushed
+    scores[msg.sender].push(3); // pushed
+    scores[msg.sender][0];
+    delete scores[msg.sender][0];
+    */
+
+    /*
+    //1. Declare struct
+    struct Sumin //Type Upper case //Value lower case // user defined datatype
+    {
+        address addr; //built-in
+        uint score;
+        string name;
+    }
+    //2. CRUD
+    Sumin[] u_arr;
+    mapping(address => Sumin) users;
+    function Hooah(string calldata _name) external
+    {
+        Sumin memory user1= Sumin(msg.sender , 100, _name);
+        Sumin memory user2= Sumin(msg.sender , 100, _name);       
+        Sumin memory user3= Sumin({addr : msg.sender , score: 100,name: _name});
+        
+        user3.score;
+        user3.score = 120;
+        delete user1;
+    //3. Array of struct
+        u_arr.push(user2);
+        u_arr.push(user3);
+        u_arr[1].score;
+        delete u_arr[1]; //set to default value
+    //4. Mapping of struct
+        users[msg.sender] = user1;
+        users[msg.sender] = Sumin({addr : msg.sender , score: 100,name: "sohnQuixote"});
+        
+        
+    }
+    
+    */
+    
+    /*
+    //like a constant
+    //1. Decalre enum
+    enum STATE{SOHN,MIKAN} //it is like a Type
+    //2. use enum
+    STATE master;
+    function setSohn() external {
+        master = STATE.SOHN;
+    }
+    function compare() external view
+    {
+        if(master == STATE.MIKAN)
+        {
+            
+        }
+        else
+        {
+            
+        }
+    }
+    //3. enum as arg
+    function rab(STATE _master) external {
+        //_ to indicate parameters
+    } 
+    //4. enum as struct
+    struct nice{
+        STATE jeopard;
+    }
+    
+    */
+    
+    /*
+    //1. storage
+    uint a; //storage variables //stored into block chain
+    struct Errand_boy
+    {
+        string name;
+    }
+    Errand_boy[] boys;
+    function hoo() external
+    {
+       
+        
+        Errand_boy storage boy1 = boys[0]; //storage variables pointer
+        boy1.name = "sohn"; // value changed
+        //2. memory
+        Errand_boy memory boy2 = boys[0]; //copied value 
+        boy2.name = "sohn"; // value not changed
+         //3. stack (call stack)
+         //inside the function stack variables
+        uint aaa; //volatile 
+        
+    }
+    //4. calldata (from transaction)
+    function hooah(uint[] calldata scores) external {
+        //called by external environment
+        //get a pointer
+    }
+    function ahhoo(uint[] memory _opt) internal {
+    // uint[] storage -> pointer
+    // uint[] memory -> copied
+    }
+    
+    */
+    
+    /*
+    //1. define event
+    //2. emit event
+    //3. indexed event
+    event marriage (
+        uint date,
+        address indexed from, //filtering query lot of gas
+        address to,
+        uint amount
+        );
+    function hooah_trade(address to, uint amount) external 
+    {
+        emit marriage(now,msg.sender,to,amount);
+        //web3 subscribe
+        //registered component event emit
+        
+    }
+    */
+}
+
