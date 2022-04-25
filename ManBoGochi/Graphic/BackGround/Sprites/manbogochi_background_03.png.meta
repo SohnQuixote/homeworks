@@ -1,0 +1,240 @@
+fileFormatVersion: 2
+guid: 2d3ca8587c6fed849afb9ca1e7933f50
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5033844869331719554
+    second: manbogochi_background_03 0
+  - first:
+      213: 3722951408912656052
+    second: manbogochi_background_03 1
+  - first:
+      213: -3468345737196465718
+    second: manbogochi_background_03 2
+  - first:
+      213: -3298944267752023903
+    second: manbogochi_background_03 3
+  - first:
+      213: -5131435320408710741
+    second: manbogochi_background_03 4
+  - first:
+      213: 391266427263766384
+    second: manbogochi_background_03 5
+  - first:
+      213: -820446359054431596
+    second: manbogochi_background_03 6
+  - first:
+      213: 6477436870938963656
+    second: manbogochi_background_03 7
+  - first:
+      213: -4470339006243017553
+    second: manbogochi_background_03 8
+  - first:
+      213: 1699783167770747629
+    second: manbogochi_background_03 9
+  - first:
+      213: -1964251595498210619
+    second: manbogochi_background_03 10
+  - first:
+      213: -8383405132806945613
+    second: manbogochi_background_03 11
+  - first:
+      213: -2532154332052503183
+    second: manbogochi_background_03 12
+  - first:
+      213: -5434566324048008632
+    second: manbogochi_background_03 13
+  - first:
+      213: 1072715639121995217
+    second: manbogochi_background_03 14
+  - first:
+      213: -8211291788361702780
+    second: manbogochi_background_03 15
+  - first:
+      213: 831042015758869795
+    second: manbogochi_background_03 16
+  - first:
+      213: 5393515281997084383
+    second: manbogochi_background_03 17
+  - first:
+      213: 7270122148848393326
+    second: manbogochi_background_03 18
+  - first:
+      213: 7916009074229952903
+    second: manbogochi_background_03 19
+  - first:
+      213: -1213297898208742343
+    second: manbogochi_background_03 20
+  - first:
+      213: -8041868831434980795
+    second: manbogochi_background_03 21
+  - first:
+      213: -6681280029509886257
+    second: manbogochi_background_03 22
+  - first:
+      213: 2599973209052986370
+    second: manbogochi_background_03 23
+  - first:
+      213: -4300904124083176769
+    second: manbogochi_background_03 24
+  - first:
+      213: -5795247304981635407
+    second: manbogochi_background_03 25
+  - first:
+      213: 1503168019530793888
+    second: manbogochi_background_03 26
+  - first:
+      213: -8946177441556837103
+    second: manbogochi_background_03 27
+  - first:
+      213: 308422367306902787
+    second: manbogochi_background_03 28
+  - first:
+      213: 7452839213777920385
+    second: manbogochi_background_03 29
+  - first:
+      213: 7578910180678796868
+    second: manbogochi_background_03 30
+  - first:
+      213: -2647871765892746083
+    second: manbogochi_background_03 31
+  - first:
+      213: -3332317604416257626
+    second: manbogochi_background_03 32
+  - first:
+      213: 173970559402610737
+    second: manbogochi_background_03 33
+  - first:
+      213: 4195077787509633603
+    second: manbogochi_background_03 34
+  - first:
+      213: -5985956079059162679
+    second: manbogochi_background_03 35
+  - first:
+      213: 3050643649712186015
+    second: manbogochi_background_03 36
+  - first:
+      213: -3347036724549975
+    second: manbogochi_background_03 37
+  - first:
+      213: 4467137294023015618
+    second: manbogochi_background_03 38
+  - first:
+      213: -2618925416692707967
+    second: manbogochi_background_03 39
+  - first:
+      213: -7500067966561158055
+    second: manbogochi_background_03_0
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 450
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: manbogochi_background_03_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 450
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95cf5d5ebe76ae790800000000000000
+      internalID: -7500067966561158055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
